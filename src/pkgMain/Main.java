@@ -29,11 +29,11 @@ public class Main {
 		System.out.print("Enter your monthly SSI: ");
 		double monthlySSI = input.nextDouble();
 		
-		double anualWithdraw = 12*(income-monthlySSI);      
-		double amountWithdrawn = retiredYrs*anualWithdraw;
+		double anualWithdraw = 12*(income-monthlySSI);
 		
+		//double amountSaved = (amountWithdrawn + ((anualWithdraw/paybackValue)*Math.pow(1+paybackValue,retiredYrs))-(anualWithdraw/paybackValue))/(1+Math.pow(1+paybackValue,retiredYrs));
 		double amountSaved = ((Math.pow(1 + paybackValue,retiredYrs) - 1)*(anualWithdraw/paybackValue))/Math.pow(1 + paybackValue, retiredYrs);
-		double monthlySavings = amountSaved/((Math.pow(1 + investValue,workYrs)-1)*(1/investValue));
+		double monthlySavings = (amountSaved/((Math.pow(1+investValue,workYrs)-1)*(1/investValue)))/12;
 		System.out.println("You must save: $" + amountSaved + " before you retire.");
 		System.out.println("You must save: $" + monthlySavings + " each month in order to retire after " + workYrs + " years.");
 	}
